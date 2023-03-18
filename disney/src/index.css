@@ -1,0 +1,66 @@
+html{
+  scroll-behavior: smooth;
+}
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: black;
+  color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: aliceblue;
+  text-decoration: none;
+}
+@media only screen and (min-width:768px) {
+  body{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width:480px) and (max-width:768px) {
+  body{
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width:480px) {
+  body{
+    font-size: 14px;
+  }
+}
+
+
+.Home{
+  height: 100%;
+  background-position:top;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-image: url("../src/images/login-background.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.llo{
+  position: relative;
+    min-height: calc(100vh-250px);
+    overflow-x:hidden;
+    display: block;
+    top: 72px;
+    padding: 0 calc(3.5vw+5px);
+}
+.llo::after{
+    background: url('../src/images/home-background.png') center center no-repeat fixed;
+    content: "";
+    position: absolute;
+    inset: 0px;
+    opacity: 1;
+    z-index: -1;
+}
