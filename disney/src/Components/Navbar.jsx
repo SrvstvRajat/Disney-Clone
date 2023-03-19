@@ -14,7 +14,7 @@ import{useNavigate} from 'react-router-dom'
 import { selectuserName,selectuserPhoto,setUserLoginDetails, setSignOutState } from "../features/user/userSlice"
 function Navbar(){
     const dispatch=useDispatch();
-    const history=useNavigate();
+    const navigate=useNavigate();
     const username=useSelector(selectuserName);
     const userphoto=useSelector(selectuserPhoto);
     const setUser=(user)=>{
@@ -29,7 +29,7 @@ function Navbar(){
         auth.onAuthStateChanged(async(user)=>{
             if(user){
                 setUser(user);
-                history.push('/home');
+                navigate('/home')
             }
         })
     }, [username])
@@ -47,7 +47,7 @@ function Navbar(){
         {
             auth.signOut().then(()=>{
                 dispatch(setSignOutState());
-                history.push("/");
+                navigate("/");
                 console.log("logout")
             })
         }
