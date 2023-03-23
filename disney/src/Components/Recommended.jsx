@@ -6,7 +6,7 @@ const Recommended=(props)=>{
     const movies=useSelector(selectRecommend);
     return(
         <Container>
-            <h1>Recommended For You</h1>
+            <h2>Recommended For You</h2>
             <Content>
                 {
                     movies&& movies.map((movie,key)=>(

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import ImageSlider from "./ImageSlider";
 import NewDisney from "./NewDisney";
 import Originals from "./Originals";
@@ -8,7 +7,7 @@ import Viewers from "./Viewers";
 import { useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import db from '../firebase'
-import { doc, snapshot, collection, query, where, onSnapshot } from "firebase/firestore";
+import {  collection, query, onSnapshot } from "firebase/firestore";
 import { setMovies } from "../features/movie/movieSlice";
 import { selectuserName } from "../features/user/userSlice";
 const Home=(props)=>{
@@ -20,8 +19,8 @@ const Home=(props)=>{
     let trendings=[];
     useEffect(()=>{
         const q=query(collection(db,'movies'));
-        const unsub=onSnapshot(q,(snapshot)=>{
-            snapshot.docs.map((doc)=>{
+        onSnapshot(q,(snapshot)=>{
+            snapshot.docs.forEach((doc)=>{
                 switch(doc.data().type){
                     case 'recommend':
                         recommends=[...recommends,{id:doc.id,...doc.data()}];
